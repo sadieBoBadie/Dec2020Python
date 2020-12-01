@@ -10,6 +10,7 @@ class Ninja:
 
     def eatStrawberry(self):
         self.health += 10
+        
 # Predict the Output (if there are any errors,
 # try to predict what it will say, and then fix it.)
 hikusake = Ninja("Hikusake", 60)
