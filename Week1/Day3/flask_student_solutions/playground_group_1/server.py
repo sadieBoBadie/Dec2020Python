@@ -1,3 +1,11 @@
+### Group who worked together ###
+# Spencer	Huyck
+# Joseph	Lee
+# Michael	Shin
+# Victor	Gargurevich
+# Michael	Towson
+# Rebeca	Gonzalez
+
 from flask import Flask, render_template
 app = Flask(__name__) 
 
