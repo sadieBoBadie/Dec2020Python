@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play - Beautiful Boxes</title>
+    <style>
+        .playground{
+            background-color:black;
+            width: 1000px;
+            min-height: 1000px;
+        }
+        .box{
+            display: inline-block;
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="playground">
+{% if(color != ''): %}
+    {% for i in range(number):%}
+       <div class="box", style="background-color: {{color}}"></div>
+    {% endfor %}
+
+    {% else %}
+        {% for i in range(number):%}
+          <div class="box"></div>
+        {% endfor %}
+{% endif %}
+</div>
+</body>
+</html>
