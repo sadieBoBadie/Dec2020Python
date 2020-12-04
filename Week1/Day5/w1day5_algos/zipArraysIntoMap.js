@@ -2,7 +2,8 @@
   Zip Arrays into Map
   
   
-  Given two arrays, create an associative array (aka hash map, an obj / dictionary) containing keys from the first array, and values from the second.
+  Given two arrays, create an associative array (aka hash map, an obj / dictionary) 
+  containing keys from the first array, and values from the second.
   Associative arrays are sometimes called maps because a key (string) maps to a value 
  */
 
