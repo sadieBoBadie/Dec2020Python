@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello!!
+    {% if 1 == 1 %}
+     <p>Sadie is a sillyhead!!</p>
+    {% endif %}
+
+    <a href="/some_other_page">click me!!</a>
+
+
+    <form action="/process_form" method="post">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <label for="card_num">Credit Card info:</label>
+        <input type="text" name="cc_num" id="">
+        
+        <p>Amount</p>
+        <input type="text" name="amount" id="">
+
+        <input type="submit" value="Submit!!">
+    </form>
+
+
+</body>
+</html>
