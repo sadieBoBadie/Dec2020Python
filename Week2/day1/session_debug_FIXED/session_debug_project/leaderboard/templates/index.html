@@ -11,26 +11,30 @@
 
 <body>
     <div class="container">
+    <h1>Hello B-Baller!</h1>
 
-        <h1>Hello B-Baller!</h1>
-        <h2>Please enter your name:</h2>
 
+    <h2>Please enter your name:</h2>
+    <table>
         <form action="/enter" method="post">
             {% csrf_token %}
             <div class="form-group">
+
                 <label for="FirstName">First Name:</label>
-                <input class="form-control" type="text" name="first_name" id="firstName">
+                <input class="form-control" type="text" name="FirstName" id="firstName">
             </div>
-            
             <div class="form-group">
                 <label for="Last_Name">Last Name:</label>
-                <input class="form-control" type="text" name="last_name" id="lastName">
+                <input class="form-control" type="text" name="Last_Name" id="lastName">
             </div>
 
-            <button class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+
+
 
         </form>
 
+    </table>
     </div>
 
 </body>

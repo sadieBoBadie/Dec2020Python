@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def index(request): 
-
+    print("in index function")
     return render(request, "index.html")
 
 
 def leaderBoard(request):
 
-    if "user_name" not in session:
+    if "user_name" not in request.session:
         print('redirecting...')
         return redirect('/')
 

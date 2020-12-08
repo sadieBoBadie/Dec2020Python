@@ -1,6 +1,7 @@
 /* 
   Given an array of strings
-  return a sum to represent how many times each array item is found (a frequency table)
+  return a sum to represent how many times each array item 
+  is found (a frequency table)
   Useful methods:
     Object.hasOwnProperty("keyName")
       - returns true or false if the object has the key or not
