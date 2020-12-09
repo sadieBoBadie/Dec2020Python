@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome guess a number between 1 and 100!</h1>
+    <form action="/process_guess" method="post">
+        {% csrf_token %}
+        <input type="text" name="guess" id="">
+        <input type="submit" value="Guess!">
+    </form>
+</body>
+</html>

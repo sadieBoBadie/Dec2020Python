@@ -16,9 +16,14 @@ class User(models.Model):
     date_of_birth = models.DateTimeField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add =True)
-    
     # objects  -> Manager class
     # save()
+    # id
+
+    def __repr__(self):
+        return f"User: {self.id} {self.first_name} {self.last_name}"
+    
+    
 
 
     # CREATE
