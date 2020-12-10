@@ -1,29 +1,12 @@
-from django.shortcuts import render, HttpResponse
-from .models import Author, Book
-# Create your views here.
-def index(request):
+# from django.shortcuts import render, HttpResponse
 
-    my_book = Book.objects.get(id=2)
-    my_book.title = "Hello World"
-    my_book.save()
+# A possible approach to the process_money function.
+# this assumes you have initialized goldCount and 
+# messageLog in the root route.
 
-    new_book = Book.objects.create(
-        title="The Water Dancer",
-        description="A book about telepathy and antebellum south",
-        author=Author.objects.get(id=2)
-        )
-    
-    context = {
-        "authors": Author.objects.all()
-    }
-    # first_author = Author.objects.first()
-    # first_author_books = first_author.books.all()
-
-    return render(request, "index.html", context)
-
-def processMoney(request):
+def process_money(request):
     # Make a dictionary, the key is location, value
-    location = request.POST['which_location']
+    location = request.POST['location']
     
     goldFrom = {
         'farm': random.randint(10, 20),
@@ -47,5 +30,6 @@ def processMoney(request):
                 "class": "red"
             }
         )
+    request.session.save()
 
     return redirect('/')

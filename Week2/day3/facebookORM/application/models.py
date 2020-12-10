@@ -45,6 +45,21 @@ class Comment(models.Model):
 # One-to-Many Example
 # One author can write many books, a book can have one author
 
+# class Author(models.Model):
+#     first_name = models.CharField(max_length=255)
+#     last_name = models.CharField(max_length=255)
+#     created_at = models.DateTimeField(auto_now=True)
+#     updated_at = models.DateTimeField(auto_now_add=True)
+#     # books = list of all the books
+
+# class Book(models.Model):
+#     title = models.CharField(max_length=255)
+#     description = models.TextField()
+#     author = models.ForeignKey(Author, related_name="books", on_delete=models.CASCADE)
+
+# Many-to-Many Example
+# A book can have multiple authors, and an author can co-author or author many books.
+
 class Author(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -55,4 +70,4 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    author = models.ForeignKey(Author, related_name="books", on_delete=models.CASCADE)
+    authors = models.ManyToManyField(Author, related_name="books", on_delete=models.CASCADE)
