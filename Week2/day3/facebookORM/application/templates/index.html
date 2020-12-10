@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-to-Many</title>
+</head>
+
+<body>
+
+    <h1>All Authors!!</h1>
+
+    {{authors}}
+
+    {% for author in authors %}
+    <h1>{{author.first_name}} {{author.last_name}}</h1>
+        <table>
+            <tr>
+                <td>Title</td>
+            </tr>
+            {% for book in author.books.all %}
+                <tr>
+                    <td>{{book.title}}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    
+    {% endfor %}
+</body>
+
+</html>
