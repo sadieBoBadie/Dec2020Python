@@ -20,15 +20,15 @@ class Post(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, related="posts")
+    user = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
     # comments
 
 class Comment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, related="comments")
-    post = models.ForeignKey(Post, related="comments")
+    user = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
 
 #                                   One     many
 # A user can post many posts ##   User --> posts [X]
@@ -70,4 +70,4 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    authors = models.ManyToManyField(Author, related_name="books", on_delete=models.CASCADE)
+    authors = models.ManyToManyField(Author, related_name="books")

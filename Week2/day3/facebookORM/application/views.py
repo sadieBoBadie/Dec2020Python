@@ -20,32 +20,3 @@ def index(request):
     # first_author_books = first_author.books.all()
 
     return render(request, "index.html", context)
-
-def processMoney(request):
-    # Make a dictionary, the key is location, value
-    location = request.POST['which_location']
-    
-    goldFrom = {
-        'farm': random.randint(10, 20),
-        'cave': random.randint(5, 10),
-        'house': random.randint(2, 5),
-        'casino': random.randint(-50, 50)
-        }
-
-    request.session['goldCount'] += goldFrom[location]
-    if goldFrom[location] > 0:
-        request.session['messageLog'].append(
-            {
-                "message":f"You gain {goldFrom[location]} gold!", 
-                "class": "green"
-            }
-        )
-    else:
-        request.session['messageLog'].append(
-            {
-                "message":f"You lose {goldFrom[location]} gold!", 
-                "class": "red"
-            }
-        )
-
-    return redirect('/')
