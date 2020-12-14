@@ -20,7 +20,7 @@ class Campaign(models.Model):
     campaign_name = models.CharField(max_length=255)
     # whatever other fields
     dungeon_master = models.ForeignKey(DnDUser, related_name="dm_campaigns")
-    players = models.ForeignKey(DnDUser, related_name="player_campaigns")
+    players = models.ManyToManyField(DnDUser, related_name="player_campaigns")
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -39,7 +39,7 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
 
     # books_to_lend
-    # borrowed_books
+    #
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
