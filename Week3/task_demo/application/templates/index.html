@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks!</title>
+</head>
+<body>
+    {{all_tasks}}
+    <h1>Add a task!!</h1>
+    <form action="/create_task" method="post">
+        {% csrf_token %}
+        <p>Title:</p>
+        <input type="text" name="title" id="">
+
+        <p>Description</p>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+
+        <p>Due Date</p>
+        <input type="date" name="due_date" id="">
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due date</th>
+        </tr>
+        {% for task in all_tasks %}
+        <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.due_date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

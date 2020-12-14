@@ -7,7 +7,7 @@
   Return -1 if none exist.
   
 */
-
+//              0  1  2  3  4
 const nums1 = [-2, 5, 7, 0, 3];
 const expected1 = 2;
 
