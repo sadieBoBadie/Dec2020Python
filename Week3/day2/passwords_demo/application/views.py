@@ -20,13 +20,14 @@ def register(request):
     pw_hash = bcrypt.hashpw(input_password.encode(), bcrypt.gensalt()).decode()
     print(pw_hash)
 
-    User.objects.create(
+    user = User.objects.create(
         first_name=request.POST['first_name'],
         last_name=request.POST['last_name'], 
         password=pw_hash
         )
+    request.session['user_id'] = user.id
 
-    return redirect('/')
+    return redirect('/success')
 
 def log_in(request):
     # objects.get will fail/error out if not in the database
@@ -42,6 +43,7 @@ def log_in(request):
             request.session['user_id'] = user.id
             # never render on a post, always redirect!
             return redirect('/success')
+    
 
 def logout(request):
     request.session.clear()
