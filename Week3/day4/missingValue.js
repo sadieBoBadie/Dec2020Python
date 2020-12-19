@@ -34,8 +34,74 @@ const expected4 = 6;
  * @return {number|null} The missing integer needed to be able to form an unbroken
  *    consecutive set of integers from the given array or null if none is missing.
  */
+/*****************************************************************************/
+
+// below solutions coded to work when min is not always 0
+
+/**
+ * - Time: O(n) linear.
+ * - Space: O(1) constant.
+ */
 function missingValue(unorderedNums) {
-    
+  if (unorderedNums.length < 1) {
+    return null;
+  }
+
+  let min = unorderedNums[0];
+  let max = unorderedNums[0];
+  let sum = 0;
+  let expectedSum = 0;
+
+  for (const n of unorderedNums) {
+    if (n < min) {
+      min = n;
+    }
+    if (n > max) {
+      max = n;
+    }
+    sum += n;
+  }
+
+  for (let i = min; i <= max; i++) {
+    expectedSum += i;
+  }
+  return sum === expectedSum ? null : expectedSum - sum;
+}
+
+/**
+ * - Time: O(n) linear.
+ * - Space: O(n) linear.
+ */
+function missingValueSeenTable(unorderedNums) {
+  if (unorderedNums.length < 1) {
+    return null;
+  }
+
+  const seen = {};
+  let min = unorderedNums[0];
+  let max = unorderedNums[0];
+
+  for (let i = 0; i < unorderedNums.length; i++) {
+    if (!seen[unorderedNums[i]]) {
+      seen[unorderedNums[i]] = true;
+    }
+    if (unorderedNums[i] < min) {
+      min = unorderedNums[i];
+    }
+    if (unorderedNums[i] > max) {
+      max = unorderedNums[i];
+    }
+  }
+
+  let val = min + 1;
+
+  while (val < max) {
+    if (!seen[val]) {
+      return val;
+    }
+    val += 1;
+  }
+  return null;
 }
 
 module.exports = { missingValue };
